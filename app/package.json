@@ -1,0 +1,14 @@
+{
+  "name": "wasm_fern",
+  "version": "0.1.0",
+  "files": [
+    "wasm_fern_bg.wasm",
+    "wasm_fern.js",
+    "wasm_fern.d.ts"
+  ],
+  "module": "wasm_fern.js",
+  "types": "wasm_fern.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
