@@ -1,5 +1,29 @@
 /* Estilizar a classe canvas-style */
-.canvas-style {
+#my-canvas {
     border: 2px solid black;
     background-color: black;
+    margin: 20px auto; /* Centralizar o canvas horizontalmente */
+    display: block; /* Certificar-se de que o canvas ocupe a largura disponível */
+}
+
+.controls {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.input-group {
+    display: inline-block;
+    margin-right: 5em;
+    vertical-align: middle;
+}
+
+.centered {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Ajustar o comprimento do slider */
+#iterations {
+    width: 80%; /* Ocupar a linha inteira */
 }

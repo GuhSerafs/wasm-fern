@@ -3,10 +3,21 @@ import init, { Canvas, render_barnsley_fern } from "./wasm_fern.js";
 async function run() {
     await init();
 
-    const canvasElement = document.getElementById("myCanvas");
+    const canvasElement = document.getElementById("my-canvas");
     const canvasWidthInput = document.getElementById("canvasWidth");
     const canvasHeightInput = document.getElementById("canvasHeight");
     const iterationsInput = document.getElementById("iterations");
+
+    // Setup do Tamanho do Canvas Dependendo do Tipo de Tela
+    if (window.innerWidth > window.innerHeight) {
+        // Telas Horizontais
+        canvasWidthInput.value = 25;
+        canvasHeightInput.value = 75;
+    } else {
+        // Telas Verticais
+        canvasWidthInput.value = 75;
+        canvasHeightInput.value = 80;
+    }
     
     const ctx = canvasElement.getContext("2d");
 
@@ -15,15 +26,15 @@ async function run() {
         const canvasWidth = parseInt(canvasWidthInput.value);
         const canvasHeight = parseInt(canvasHeightInput.value);
         const iterations = parseInt(iterationsInput.value);
+        
+        canvasElement.width = canvasWidth * window.innerWidth / 100;
+        canvasElement.height = canvasHeight * window.innerHeight / 100;
 
-        canvasElement.width = canvasWidth;
-        canvasElement.height = canvasHeight;
-
-        const canvas = Canvas.new(canvasWidth, canvasHeight);
+        const canvas = Canvas.new(canvasElement.width, canvasElement.height);
         render_barnsley_fern(canvas, iterations);
 
         const imageData = canvas.render();
-        const imgData = new ImageData(new Uint8ClampedArray(imageData), canvasWidth, canvasHeight);
+        const imgData = new ImageData(new Uint8ClampedArray(imageData), canvasElement.width, canvasElement.height);
         ctx.putImageData(imgData, 0, 0);
     }
 

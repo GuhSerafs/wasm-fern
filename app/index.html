@@ -7,14 +7,25 @@
 </head>
 <body>
     <!-- Controles para ajustar o tamanho do canvas e o número de iterações -->
-    <label for="canvasWidth">Largura do Canvas:</label>
-    <input type="number" id="canvasWidth" value="600">
-    <label for="canvasHeight">Altura do Canvas:</label>
-    <input type="number" id="canvasHeight" value="600">
-    <label for="iterations">Número de Iterações:</label>
-    <input type="number" id="iterations" value="75000">
+    <canvas id="my-canvas" class="canvas-style" width="400" height="600"></canvas>
     
-    <canvas id="myCanvas" class="canvas-style" width="800" height="800"></canvas>
+    <!-- Controles -->
+    <div class="controls">
+        <div class="input-group centered">
+            <label for="iterations">Número de Iterações:</label>
+            <input type="range" id="iterations" min="1000" max="1000000" value="35000">
+        </div>
+    </div>
+    <div class="controls">
+        <div class="input-group">
+            <label for="canvasWidth">Largura do Canvas (%):</label>
+            <input type="number" id="canvasWidth">
+        </div>
+        <div class="input-group">
+            <label for="canvasHeight">Altura do Canvas (%):</label>
+            <input type="number" id="canvasHeight">
+        </div>
+    </div>
     <script type="module" src="index.js"></script>
 </body>
 </html>
